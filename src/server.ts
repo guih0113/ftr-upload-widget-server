@@ -6,7 +6,7 @@ import { fastifyMultipart } from '@fastify/multipart'
 export const app = fastify()
 
 app.register(fastifyCors, {
-  origin: '*',
+  origin: ['https://ftr-upload-widget-web-nu.vercel.app', 'http://localhost:5173']
 })
 
 app.register(fastifyMultipart)
