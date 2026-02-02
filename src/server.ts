@@ -3,15 +3,15 @@ import { fastifyCors } from '@fastify/cors'
 import { uploadImageRoute } from './routes/upload-image'
 import { fastifyMultipart } from '@fastify/multipart'
 
-const server = fastify()
+export const app = fastify()
 
-server.register(fastifyCors, {
+app.register(fastifyCors, {
   origin: '*',
 })
 
-server.register(fastifyMultipart)
-server.register(uploadImageRoute)
+app.register(fastifyMultipart)
+app.register(uploadImageRoute)
 
-server.listen({ port: 3333, host: '0.0.0.0' }).then(() => {
+app.listen({ port: 3333, host: '0.0.0.0' }).then(() => {
   console.log('HTTP server running!')
 })
